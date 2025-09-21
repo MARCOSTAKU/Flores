@@ -106,13 +106,18 @@ body {
     text-align: center;
     z-index: 20;
     background: rgba(255, 255, 255, 0.95);
-    padding: 2rem 3rem;
-    border-radius: 20px;
+    padding: 1.2rem 2.5rem;
+    border-radius: 25px;
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     border: 3px solid #ffeb3b;
     opacity: 0;
     transition: all 0.8s ease;
+    cursor: default;
+    user-select: none;
+    max-width: min(400px, 80vw);
+    min-width: 250px;
+    box-sizing: border-box;
 }
 
 .final-message.show {
@@ -122,12 +127,15 @@ body {
 
 .final-text {
     font-family: 'Pacifico', cursive;
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     color: #ff6b35;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     margin: 0;
     animation: heartBeat 2s ease-in-out infinite;
-    line-height: 1.2;
+    line-height: 1.3;
+    white-space: nowrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 @keyframes heartBeat {
@@ -328,20 +336,31 @@ body {
     }
     
     .final-message {
-        bottom: 20px;
-        padding: 1rem 1.5rem;
-        margin: 0 1rem;
-        left: 1rem;
-        right: 1rem;
-        transform: translateY(100px);
+        top: 50%;
+        left: 50%;
+        right: auto;
+        bottom: auto;
+        transform: translate(-50%, -50%) translateY(100px);
+        padding: 0.8rem 1.5rem;
+        margin: 0;
+        max-width: 90vw;
+        min-width: 280px;
     }
     
     .final-message.show {
-        transform: translateY(0);
+        transform: translate(-50%, -50%);
     }
     
     .final-text {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        white-space: normal;
+        word-break: break-word;
+    }
+    
+    .final-message {
+        padding: 1rem 2rem;
+        max-width: min(350px, 85vw);
+        min-width: 200px;
     }
 }
 
