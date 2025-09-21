@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Amarillas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Fondo con degradado dinámico -->
+    <div class="background-gradient"></div>
+    
+    <!-- Mensaje principal como botón -->
+    <div class="message-container" id="messageContainer">
+        <h1 class="main-message">Nunca serás espectadora linda.</h1>
+        <p class="message-subtitle">Haz clic para continuar</p>
+    </div>
+    
+    <!-- Contenedor principal de flores -->
+    <main class="flower-garden" id="flowerGarden">
+        <!-- Las flores se generarán dinámicamente -->
+    </main>
+    
+    <!-- Mensaje final que aparece después de los girasoles -->
+    <div class="final-message" id="finalMessage">
+        <h2 class="final-text">Te quiero mucho, okay? 💛</h2>
+    </div>
+    
+    <!-- Script principal -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

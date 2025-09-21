@@ -1,0 +1,374 @@
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    margin: 0;
+    padding: 0;
+}
+
+/* Fondo animado */
+.background-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        #ffd89b 0%, 
+        #ffeb3b 25%, 
+        #ffd89b 50%, 
+        #ffeb3b 75%, 
+        #ffd89b 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    z-index: -2;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Mensaje principal como botón */
+.message-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 3px solid #ffeb3b;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+.message-container:hover {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    border-color: #ffc107;
+}
+
+.main-message {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    color: #ff6b35;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: messagePulse 3s ease-in-out infinite;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.message-subtitle {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+@keyframes messagePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes fadeOut {
+    0% { 
+        opacity: 1; 
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% { 
+        opacity: 0; 
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+}
+
+/* Mensaje final */
+.final-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateY(100px);
+    text-align: center;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 3px solid #ffeb3b;
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+.final-message.show {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+.final-text {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    color: #ff6b35;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 0;
+    animation: heartBeat 2s ease-in-out infinite;
+    line-height: 1.2;
+}
+
+@keyframes heartBeat {
+    0%, 100% { 
+        transform: scale(1); 
+    }
+    50% { 
+        transform: scale(1.05); 
+    }
+}
+
+/* Jardín de flores */
+.flower-garden {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    padding: 2rem;
+    perspective: 1000px;
+}
+
+/* Flores individuales - Girasoles SVG realistas */
+.flower {
+    position: absolute;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    transform-style: preserve-3d;
+    z-index: 1;
+    filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.flower:hover {
+    transform: scale(1.08) rotateY(10deg);
+    z-index: 5;
+    filter: drop-shadow(4px 6px 12px rgba(0, 0, 0, 0.3)) brightness(1.1);
+}
+
+.flower svg {
+    animation: gentleFloat 8s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+    }
+    25% { 
+        transform: translateY(-3px) rotate(0.5deg); 
+    }
+    50% { 
+        transform: translateY(-5px) rotate(0deg); 
+    }
+    75% { 
+        transform: translateY(-3px) rotate(-0.5deg); 
+    }
+}
+
+/* Animación de caída desde arriba para girasoles */
+.flower.blooming {
+    animation: sunflowerFall 2.5s ease-out forwards;
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes sunflowerFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg) scale(0.8);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(-80vh) rotate(72deg) scale(0.9);
+    }
+    60% {
+        transform: translateY(10px) rotate(216deg) scale(1.1);
+    }
+    80% {
+        transform: translateY(-5px) rotate(288deg) scale(1.05);
+    }
+    100% {
+        transform: translateY(0) rotate(360deg) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Animación adicional para el rebote al tocar el suelo */
+.flower.landed {
+    animation: sunflowerBounce 0.8s ease-out forwards;
+}
+
+/* Asegurar que las flores permanezcan visibles después de todas las animaciones */
+.flower.blooming,
+.flower.landed {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+@keyframes sunflowerBounce {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Efectos de click mejorados */
+.flower.clicked {
+    animation: sunflowerPulse 2s ease-in-out;
+}
+
+@keyframes sunflowerPulse {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg); 
+        filter: brightness(1) drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.2));
+    }
+    15% { 
+        transform: scale(1.05) rotate(3deg); 
+        filter: brightness(1.15) drop-shadow(3px 5px 10px rgba(255, 193, 7, 0.4));
+    }
+    30% { 
+        transform: scale(1.12) rotate(-2deg); 
+        filter: brightness(1.25) drop-shadow(4px 6px 12px rgba(255, 193, 7, 0.6));
+    }
+    45% { 
+        transform: scale(1.08) rotate(2deg); 
+        filter: brightness(1.2) drop-shadow(3px 5px 10px rgba(255, 193, 7, 0.5));
+    }
+    60% { 
+        transform: scale(1.1) rotate(-1deg); 
+        filter: brightness(1.15) drop-shadow(4px 6px 12px rgba(255, 193, 7, 0.4));
+    }
+    80% { 
+        transform: scale(1.05) rotate(1deg); 
+        filter: brightness(1.1) drop-shadow(3px 5px 10px rgba(255, 193, 7, 0.3));
+    }
+}
+
+/* Efectos de viento suave */
+.flower svg {
+    transform-origin: center bottom;
+}
+
+@keyframes windSway {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(1deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-1deg); }
+}
+
+/* Aplicar efecto de viento a todas las flores */
+.flower:nth-child(odd) svg {
+    animation: gentleFloat 8s ease-in-out infinite, windSway 6s ease-in-out infinite;
+}
+
+.flower:nth-child(even) svg {
+    animation: gentleFloat 10s ease-in-out infinite, windSway 7s ease-in-out infinite reverse;
+}
+
+/* Responsive para girasoles SVG */
+@media (max-width: 1200px) {
+    .flower svg {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .main-message {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-message {
+        font-size: 1.8rem;
+    }
+    
+    .message-container {
+        padding: 1.5rem 2rem;
+        margin: 0 1rem;
+    }
+    
+    .flower-garden {
+        padding: 1rem;
+    }
+    
+    .flower svg {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .flower svg[height="50"] {
+        height: 40px;
+    }
+    
+    .message-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .final-message {
+        bottom: 20px;
+        padding: 1rem 1.5rem;
+        margin: 0 1rem;
+        left: 1rem;
+        right: 1rem;
+        transform: translateY(100px);
+    }
+    
+    .final-message.show {
+        transform: translateY(0);
+    }
+    
+    .final-text {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-message {
+        font-size: 1.5rem;
+    }
+    
+    .message-container {
+        padding: 1rem 1.5rem;
+        margin: 0 0.5rem;
+    }
+    
+    .flower svg {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .flower svg[height="50"] {
+        height: 30px;
+    }
+    
+    .final-text {
+        font-size: 1.2rem;
+    }
+    
+    .final-message {
+        padding: 0.8rem 1rem;
+    }
+}
