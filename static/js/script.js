@@ -256,15 +256,15 @@ function createFlowerElement(flowerData, index) {
     
     const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
     stop1.setAttribute('offset', '0%');
-    stop1.setAttribute('stop-color', '#FFD700');
+    stop1.setAttribute('stop-color', '#FF6B8A');
     
     const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
     stop2.setAttribute('offset', '50%');
-    stop2.setAttribute('stop-color', '#FFA500');
+    stop2.setAttribute('stop-color', '#FF4D6B');
     
     const stop3 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
     stop3.setAttribute('offset', '100%');
-    stop3.setAttribute('stop-color', '#FF8C00');
+    stop3.setAttribute('stop-color', '#C2185B');
     
     petalGradient.appendChild(stop1);
     petalGradient.appendChild(stop2);
@@ -279,15 +279,15 @@ function createFlowerElement(flowerData, index) {
     
     const centerStop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
     centerStop1.setAttribute('offset', '0%');
-    centerStop1.setAttribute('stop-color', '#8B4513');
+    centerStop1.setAttribute('stop-color', '#5D0018');
     
     const centerStop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
     centerStop2.setAttribute('offset', '60%');
-    centerStop2.setAttribute('stop-color', '#654321');
+    centerStop2.setAttribute('stop-color', '#3E0010');
     
     const centerStop3 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
     centerStop3.setAttribute('offset', '100%');
-    centerStop3.setAttribute('stop-color', '#3E2723');
+    centerStop3.setAttribute('stop-color', '#2A0008');
     
     centerGradient.appendChild(centerStop1);
     centerGradient.appendChild(centerStop2);
@@ -305,11 +305,11 @@ function createFlowerElement(flowerData, index) {
     // Crear pequeños círculos para las semillas
     for (let s = 0; s < 4; s++) {
         const seed = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        seed.setAttribute('cx', s % 2 === 0 ? '2' : '6');
-        seed.setAttribute('cy', s < 2 ? '2' : '6');
-        seed.setAttribute('r', '0.8');
-        seed.setAttribute('fill', '#2E1A06');
-        seed.setAttribute('opacity', '0.6');
+            seed.setAttribute('cx', s % 2 === 0 ? '2' : '6');
+            seed.setAttribute('cy', s < 2 ? '2' : '6');
+            seed.setAttribute('r', '0.8');
+            seed.setAttribute('fill', '#2E0F1A');
+            seed.setAttribute('opacity', '0.6');
         seedPattern.appendChild(seed);
     }
     
@@ -484,7 +484,7 @@ function createBigSunflower() {
         
         // Efecto de brillo
         setTimeout(() => {
-            bigFlowerElement.style.filter = 'drop-shadow(0 0 20px #FFD700)';
+            bigFlowerElement.style.filter = 'drop-shadow(0 0 20px #FF7AA3)';
         }, 1000);
     }, 100);
 }
@@ -565,7 +565,7 @@ function createGigaSunflower() {
         
         // Efecto de brillo intenso
         setTimeout(() => {
-            gigaFlowerElement.style.filter = 'drop-shadow(0 0 120px #FFD700) drop-shadow(0 0 240px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 360px rgba(255, 215, 0, 0.5))';
+            gigaFlowerElement.style.filter = 'drop-shadow(0 0 120px #FF7AA3) drop-shadow(0 0 240px rgba(255, 105, 180, 0.8)) drop-shadow(0 0 360px rgba(255, 105, 180, 0.5))';
             
             // Eliminar el overlay de pulso
             setTimeout(() => {
@@ -651,7 +651,7 @@ function createFlowerPetals(flowerElement) {
             position: fixed;
             width: 8px;
             height: 12px;
-            background: linear-gradient(45deg, #FFD700, #FFA500);
+            background: linear-gradient(45deg, #FF9FC1, #FF6B9C);
             border-radius: 50% 0 50% 0;
             left: ${centerX}px;
             top: ${centerY}px;
@@ -661,7 +661,6 @@ function createFlowerPetals(flowerElement) {
             transform: rotate(${Math.random() * 360}deg);
         `;
         
-        // Dirección aleatoria
         const angle = (Math.PI * 2 * i) / 6 + Math.random() * 0.5;
         const velocity = Math.random() * 50 + 30;
         
@@ -747,7 +746,7 @@ function createPetalConfetti() {
                 position: absolute;
                 width: ${Math.random() * 10 + 5}px;
                 height: ${Math.random() * 15 + 10}px;
-                background: linear-gradient(45deg, #FFD700, #FFA500);
+                    background: linear-gradient(45deg, #FF9FC1, #FF6B9C);
                 border-radius: 50% 0 50% 0;
                 top: -20px;
                 left: ${Math.random() * 100}vw;
@@ -818,14 +817,14 @@ function createParticle(container, intense = false) {
         position: absolute;
         width: ${size}px;
         height: ${size}px;
-        background: radial-gradient(circle, #FFD700 0%, #FFA500 50%, transparent 100%);
+        background: radial-gradient(circle, #FF9FC1 0%, #FF6B9C 50%, transparent 100%);
         border-radius: 50%;
         opacity: ${opacity};
         pointer-events: none;
         left: ${Math.random() * 100}vw;
         top: ${Math.random() * 100}vh;
         animation: floatParticle ${Math.random() * 20 + 10}s linear infinite;
-        box-shadow: 0 0 ${size * 2}px #FFD700;
+        box-shadow: 0 0 ${size * 2}px #FF9FC1;
     `;
     
     container.appendChild(particle);
@@ -927,12 +926,11 @@ function createSunRays() {
             position: absolute;
             top: -50vh;
             left: ${20 + i * 10}vw;
-            width: 2px;
             height: 200vh;
             background: linear-gradient(to bottom, 
                 transparent 0%, 
-                rgba(255, 215, 0, 0.3) 20%, 
-                rgba(255, 215, 0, 0.1) 50%, 
+                rgba(255, 105, 180, 0.18) 20%, 
+                rgba(255, 105, 180, 0.08) 50%, 
                 transparent 100%);
             transform: rotate(${-20 + i * 5}deg);
             animation: sunRayAnimation ${3 + Math.random() * 2}s ease-in-out infinite alternate;
@@ -957,7 +955,7 @@ function setupMagicCursor() {
         position: fixed;
         width: 20px;
         height: 20px;
-        background: radial-gradient(circle, rgba(255, 215, 0, 0.8) 0%, transparent 70%);
+        background: radial-gradient(circle, rgba(255, 105, 180, 0.8) 0%, transparent 70%);
         border-radius: 50%;
         pointer-events: none;
         z-index: 9999;
@@ -1001,7 +999,7 @@ function setupMagicCursor() {
             e.target.closest('.message-container') || 
             e.target.closest('.final-message')) {
             cursor.style.transform = 'scale(2)';
-            cursor.style.background = 'radial-gradient(circle, rgba(255, 165, 0, 0.9) 0%, transparent 70%)';
+            cursor.style.background = 'radial-gradient(circle, rgba(255, 105, 180, 0.95) 0%, transparent 70%)';
         }
     }, true);
     
@@ -1010,7 +1008,7 @@ function setupMagicCursor() {
             e.target.closest('.message-container') || 
             e.target.closest('.final-message')) {
             cursor.style.transform = 'scale(1)';
-            cursor.style.background = 'radial-gradient(circle, rgba(255, 215, 0, 0.8) 0%, transparent 70%)';
+            cursor.style.background = 'radial-gradient(circle, rgba(255, 105, 180, 0.8) 0%, transparent 70%)';
         }
     }, true);
 }
@@ -1022,7 +1020,7 @@ function createTrailParticle(x, y) {
         position: fixed;
         width: 4px;
         height: 4px;
-        background: rgba(255, 215, 0, 0.6);
+        background: rgba(255, 105, 180, 0.6);
         border-radius: 50%;
         pointer-events: none;
         z-index: 9998;
